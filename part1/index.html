@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script src="js/app.js"></script>
+  </head>
+  <body ng-app="selectApp">
+
+    <h2>Angular Test - Part 1</h2>
+
+    <div ng-controller="SelectController as selectCtrl">
+
+      <form ng-submit="selectCtrl.addToSelect()">        
+        <p>The var: {{ selectCtrl.theVar }}</p>
+        <p>The var input:  
+            <input type="text" ng-model="selectCtrl.theVarInput" ng-change="selectCtrl.updateValue(selectCtrl.theVarInput)" size="30">   
+        </p>
+        <p>The var select: 
+            <select ng-options="option for option in selectCtrl.theVarSelect" ng-model="selectCtrl.selectedOption" ng-change="selectCtrl.updateValue(selectCtrl.selectedOption)"></select>
+        </p>      
+        <p>Select size: {{ selectCtrl.theVarSelect.length }} </p>
+        <input type="submit" value="Add to select">
+      </form>
+    </div>
+  </body>
+</html>
